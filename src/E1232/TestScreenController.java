@@ -212,10 +212,10 @@ public class TestScreenController implements Initializable {
                         txtTestType.setText("HYDROSTATIC SEAT B SIDE");
                         break;
                     case "3":
-                        txtTestType.setText("PNEUMATIC A SIDE");
+                        txtTestType.setText("PNEUMATIC SEAT A SIDE");
                         break;
                     case "4":
-                        txtTestType.setText("PNEUMATIC B SIDE");
+                        txtTestType.setText("PNEUMATIC SEAT B SIDE");
                         break;
                 }
 
@@ -1134,8 +1134,8 @@ public class TestScreenController implements Initializable {
                 txtMode.setText("Auto Mode");
                 current_machine_mode = "3";
                 txtdate.setFill(Color.web("#0099FF"));
-                toggleAside.setDisable(true);
-                toggleBside.setDisable(true);
+                toggleAside.setDisable(false);
+                toggleBside.setDisable(false);
                 break;
             default:
                 txtMode.setText("Something wrong");
