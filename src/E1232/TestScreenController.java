@@ -217,6 +217,16 @@ public class TestScreenController implements Initializable {
                     case "4":
                         txtTestType.setText("PNEUMATIC SEAT B SIDE");
                         break;
+                    case "5":
+                        txtTestType.setText("BACKSEAT");
+                        break;
+                    case "6":
+                        txtTestType.setText("SIMULTANEOUS SEAT TEST HYDRO");
+                        break;
+                    case "7":
+                        txtTestType.setText("SIMULTANEOUS SEAT AIR HYDRO");
+                        break;
+
                 }
 
                 switch (rs.getString("valve_type")) {
@@ -316,6 +326,11 @@ public class TestScreenController implements Initializable {
             GaugeActualHydro_B.setVisible(true);
             textHydrobside.setVisible(true);
             txtLabelgaugeAside.setVisible(false);
+        } else if (Session.get("tt").equals("SIMULTANEOUS SEAT TEST HYDRO") || Session.get("tt").equals("SIMULTANEOUS SEAT TEST AIR")) {
+            GaugeActualHydro_A.setVisible(true);
+            GaugeActualHydro_B.setVisible(true);
+            textHydrobside.setVisible(true);
+            txtLabelgaugeAside.setVisible(true);
         } else {
             GaugeActualHydro_B.setVisible(false);
             textHydrobside.setVisible(false);
@@ -928,7 +943,7 @@ public class TestScreenController implements Initializable {
                                     stop_pressure_a = pressure_a;
                                     stop_pressure_b = pressure_b;
                                     holding_time = Integer.toString(Integer.parseInt(txtHoldingTimer.getText()) + 1);
-                                    
+
 //                                        imgDrainDelay.setVisible(false);
                                     pop_up_timer("Start Drain Timer", 300, 0, "N7:9");
                                     third_pop_lock = true;
