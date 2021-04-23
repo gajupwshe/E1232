@@ -1,0 +1,1242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTabPane?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.JFXTreeTableView?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1200.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="E1232.AdminScreenController">
+    <stylesheets>
+        <URL value="@adminscreen.css" />
+    </stylesheets>
+   <children>
+      <VBox layoutX="230.0" layoutY="140.0" prefHeight="1101.0" prefWidth="2043.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox prefHeight="73.0" prefWidth="1546.0">
+               <children>
+                  <ImageView fitHeight="71.0" fitWidth="209.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/Creintors_hydrothrust_logo.png" />
+                     </image>
+                  </ImageView>
+                  <VBox alignment="CENTER" prefHeight="73.0" prefWidth="1023.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="VALVE TESTING UNIT">
+                           <font>
+                              <Font name="DejaVu Sans Condensed Bold" size="29.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="73.0" prefWidth="328.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date :">
+                                 <HBox.margin>
+                                    <Insets left="80.0" top="45.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="txtdate" strokeType="OUTSIDE" strokeWidth="0.0">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="45.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="41.0" prefWidth="1550.0" style="-fx-background-color: #030142;">
+               <children>
+                  <VBox alignment="CENTER" prefHeight="41.0" prefWidth="229.0">
+                     <children>
+                        <JFXButton fx:id="btnLogin" onAction="#btnLoginAction" text="HOME" textFill="WHITE">
+                           <font>
+                              <Font name="DejaVu Sans Bold" size="16.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="41.0" prefWidth="195.0">
+                     <children>
+                        <JFXButton fx:id="btnTestScreeng" onAction="#btnTestScreenAction" text="VALVE TEST" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="41.0" prefWidth="223.0">
+                     <children>
+                        <JFXButton fx:id="btnReport" onAction="#btnReportAction" text="REPORT" textFill="WHITE">
+                           <font>
+                              <Font name="DejaVu Sans Bold" size="16.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="41.0" prefWidth="223.0" style="-fx-background-color: #0595e3;">
+                     <children>
+                        <JFXButton fx:id="btnAdmin" onAction="#btnAdminAction" text="ADMIN" textFill="WHITE">
+                           <font>
+                              <Font name="DejaVu Sans Bold" size="16.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="41.0" prefWidth="271.0">
+                     <children>
+                        <JFXButton fx:id="btngauge" onAction="#btngaugeAction" text="GAUGE CALIBRATION" textFill="WHITE">
+                           <font>
+                              <Font name="DejaVu Sans Bold" size="16.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="40.0" prefWidth="283.0">
+                     <children>
+                        <JFXButton fx:id="btnAirPurging" onAction="#btnAirPurgingAction" text=" AIR PURGING" textFill="WHITE">
+                           <font>
+                              <Font name="DejaVu Sans Bold" size="16.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <BorderPane VBox.vgrow="ALWAYS">
+               <center>
+                  <JFXTabPane BorderPane.alignment="CENTER">
+                     <tabs>
+                        <Tab fx:id="tabUser" onSelectionChanged="#tabUserAction" text="User Registration">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <HBox prefHeight="65.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <VBox prefHeight="600.0" prefWidth="0.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <JFXTextField fx:id="txtSearch" focusColor="#0099ff" labelFloat="true" promptText="Search" unFocusColor="BLACK">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets bottom="20.0" top="20.0" />
+                                                   </VBox.margin>
+                                                </JFXTextField>
+                                                <JFXTreeTableView fx:id="tblUser" showRoot="false" VBox.vgrow="ALWAYS">
+                                                   <columnResizePolicy>
+                                                      <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                   </columnResizePolicy></JFXTreeTableView>
+                                             </children>
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </VBox>
+                                          <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <GridPane VBox.vgrow="ALWAYS">
+                                                  <columnConstraints>
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+                                                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="400.0" />
+                                                      <ColumnConstraints />
+                                                  </columnConstraints>
+                                                  <rowConstraints>
+                                                      <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                    <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                  </rowConstraints>
+                                                   <children>
+                                                      <JFXTextField fx:id="txtName" focusColor="#0099ff" labelFloat="true" maxWidth="-Infinity" prefHeight="35.0" prefWidth="400.0" promptText="FULL NAME" style="-fx-cell-size: 50;" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </JFXTextField>
+                                                      <JFXTextField fx:id="txtUserName" focusColor="#0099ff" labelFloat="true" maxWidth="-Infinity" prefHeight="35.0" prefWidth="400.0" promptText="USERNAME" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </JFXTextField>
+                                                      <JFXTextField fx:id="txtQualification" focusColor="#0099ff" labelFloat="true" maxWidth="-Infinity" prefHeight="35.0" prefWidth="400.0" promptText="QUALIFICATION" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.vgrow="ALWAYS">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </JFXTextField>
+                                                      <JFXComboBox fx:id="cmbUserType" focusColor="#0099ff" labelFloat="true" prefHeight="35.0" prefWidth="400.0" promptText="USER TYPE" style="-fx-font-size: 14; -fx-cell-size: 10;" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="5" GridPane.vgrow="ALWAYS" />
+                                                      <JFXPasswordField fx:id="txtPassword" focusColor="#0099ff" labelFloat="true" maxWidth="-Infinity" prefHeight="35.0" prefWidth="400.0" promptText="PASSWORD" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </JFXPasswordField>
+                                                      <JFXButton fx:id="btnAddUpdate" buttonType="RAISED" onAction="#btnAddUpdateAction" prefHeight="26.0" prefWidth="129.0" style="-fx-background-color: derive(#0099FF,20%);" text="Add New" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="6" GridPane.valignment="TOP">
+                                                         <font>
+                                                            <Font name="System Bold" size="14.0" />
+                                                         </font>
+                                                      </JFXButton>
+                                                      <JFXButton fx:id="btnDelete" buttonType="RAISED" onAction="#btnDeleteAction" prefHeight="26.0" prefWidth="129.0" style="-fx-background-color: derive(#ac0800,20%);" text="Delete" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.valignment="TOP">
+                                                         <font>
+                                                            <Font name="System Bold" size="14.0" />
+                                                         </font>
+                                                      </JFXButton>
+                                                      <JFXButton fx:id="btnClear" buttonType="RAISED" onAction="#btnClearAction" prefHeight="33.0" prefWidth="227.0" text="Clear and Add New" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="BOTTOM">
+                                                         <font>
+                                                            <Font name="System Bold" size="14.0" />
+                                                         </font>
+                                                      </JFXButton>
+                                                      <JFXButton fx:id="btnCloseMessage" maxHeight="-Infinity" onAction="#btnCloseMessageAction" prefHeight="30.0" style="-fx-background-color: derive(#FF0808,100%);" text="X" GridPane.halignment="RIGHT">
+                                                         <font>
+                                                            <Font name="System Bold" size="13.0" />
+                                                         </font>
+                                                         <GridPane.margin>
+                                                            <Insets />
+                                                         </GridPane.margin>
+                                                      </JFXButton>
+                                                      <HBox fx:id="BoxMessage" maxHeight="-Infinity" prefHeight="33.0" prefWidth="400.0" style="-fx-background-color: derive(#FF0808,100%);" GridPane.columnIndex="1">
+                                                         <children>
+                                                            <Text fx:id="txtMessage" strokeType="OUTSIDE" strokeWidth="0.0" text="Alert" HBox.hgrow="ALWAYS">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                               <HBox.margin>
+                                                                  <Insets top="5.0" />
+                                                               </HBox.margin>
+                                                            </Text>
+                                                         </children></HBox>
+                                                   </children>
+                                                </GridPane>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                        <Tab fx:id="tabGauge" onSelectionChanged="#tabGaugeAction" text="Gauge Settings">
+                          <content>
+                            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <HBox prefHeight="565.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <VBox prefHeight="600.0" prefWidth="0.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <JFXTextField fx:id="txtSearchGauge" focusColor="#0099ff" labelFloat="true" promptText="Search" unFocusColor="BLACK">
+                                                   <font>
+                                                      <Font name="System Bold" size="12.0" />
+                                                   </font>
+                                                   <VBox.margin>
+                                                      <Insets bottom="20.0" top="20.0" />
+                                                   </VBox.margin>
+                                                </JFXTextField>
+                                                <JFXTreeTableView fx:id="tblGauge" showRoot="false" VBox.vgrow="ALWAYS">
+                                                   <columnResizePolicy>
+                                                      <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                   </columnResizePolicy></JFXTreeTableView>
+                                             </children>
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </VBox>
+                                          <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <GridPane VBox.vgrow="ALWAYS">
+                                                   <columnConstraints>
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+                                                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="400.0" />
+                                                      <ColumnConstraints />
+                                                   </columnConstraints>
+                                                   <rowConstraints>
+                                                      <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                      <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                   </rowConstraints>
+                                                   <children>
+                                                      <JFXTextField fx:id="txtGuageSerial" focusColor="#0099ff" labelFloat="true" maxWidth="-Infinity" prefHeight="35.0" prefWidth="400.0" promptText="Guage Serial Number" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </JFXTextField>
+                                                      <JFXButton fx:id="btnAddUpdateGauge" buttonType="RAISED" onAction="#btnAddUpdateGaugeAction" prefHeight="26.0" prefWidth="129.0" style="-fx-background-color: derive(#0099FF,20%);" text="Add New" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="6" GridPane.valignment="TOP">
+                                                         <font>
+                                                            <Font name="System Bold" size="14.0" />
+                                                         </font>
+                                                      </JFXButton>
+                                                      <JFXButton fx:id="btnDeleteGauge" buttonType="RAISED" onAction="#btnDeleteGaugeAction" prefHeight="26.0" prefWidth="129.0" style="-fx-background-color: derive(#ac0800,20%);" text="Delete" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6" GridPane.valignment="TOP">
+                                                         <font>
+                                                            <Font name="System Bold" size="14.0" />
+                                                         </font>
+                                                      </JFXButton>
+                                                      <JFXButton fx:id="btnClearGauge" buttonType="RAISED" onAction="#btnClearGaugeAction" prefHeight="33.0" prefWidth="227.0" text="Clear and Add New" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="6" GridPane.valignment="BOTTOM">
+                                                         <font>
+                                                            <Font name="System Bold" size="18.0" />
+                                                         </font>
+                                                      </JFXButton>
+                                                      <JFXButton fx:id="btnCloseMessageGauge" maxHeight="-Infinity" onAction="#btnCloseMessageGaugeAction" prefHeight="30.0" style="-fx-background-color: derive(#FF0808,100%);" text="X" GridPane.halignment="RIGHT">
+                                                         <font>
+                                                            <Font name="System Bold" size="14.0" />
+                                                         </font>
+                                                         <GridPane.margin>
+                                                            <Insets />
+                                                         </GridPane.margin>
+                                                      </JFXButton>
+                                                      <HBox fx:id="BoxMessageGauge" maxHeight="-Infinity" prefHeight="33.0" prefWidth="400.0" style="-fx-background-color: derive(#FF0808,100%);" GridPane.columnIndex="1">
+                                                         <children>
+                                                            <Text fx:id="txtMessageGuage" strokeType="OUTSIDE" strokeWidth="0.0" text="Alert">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                               <HBox.margin>
+                                                                  <Insets top="5.0" />
+                                                               </HBox.margin>
+                                                            </Text>
+                                                         </children></HBox>
+                                                      <JFXDatePicker fx:id="txtCalibrationDate" defaultColor="#0099ff" editable="false" prefHeight="35.0" prefWidth="400.0" promptText="Calibration Date" showWeekNumbers="true" style="-fx-font-size: 14;" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="4" GridPane.valignment="CENTER" />
+                                                      <JFXDatePicker fx:id="txtCalibrationDueDate" defaultColor="#0099ff" editable="false" layoutX="110.0" layoutY="274.0" prefHeight="35.0" prefWidth="400.0" promptText="Calibration Due Date" showWeekNumbers="true" style="-fx-font-size: 14;" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                                                      <JFXComboBox fx:id="cmbGuageDescription" editable="true" focusColor="#0099ff" labelFloat="true" onAction="#cmbGuageDescriptionAction" prefHeight="35.0" prefWidth="400.0" promptText="Guage Description" style="-fx-font-size: 14;" visibleRowCount="8" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS" />
+                                                      <JFXTextField fx:id="txtGuageRange" focusColor="#0099ff" labelFloat="true" maxWidth="-Infinity" prefHeight="35.0" prefWidth="174.0" promptText="Guage Range" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </JFXTextField>
+                                                      <JFXComboBox fx:id="cmbGuageUnit" editable="true" focusColor="#0099ff" labelFloat="true" onAction="#cmbGuageUnitAction" prefHeight="35.0" prefWidth="161.0" promptText="Unit" style="-fx-font-size: 14;" visibleRowCount="8" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                                                         <opaqueInsets>
+                                                            <Insets left="300.0" />
+                                                         </opaqueInsets>
+                                                         <GridPane.margin>
+                                                            <Insets />
+                                                         </GridPane.margin>
+                                                      </JFXComboBox>
+                                                   </children>
+                                                </GridPane>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                          </content>
+                        </Tab>
+                        <Tab fx:id="tabCMP" onSelectionChanged="#tabCMPAction" text="Master List">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <HBox prefHeight="565.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <VBox prefHeight="600.0" prefWidth="0.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <HBox prefHeight="37.0" prefWidth="453.0" VBox.vgrow="NEVER">
+                                                   <children>
+                                                      <GridPane HBox.hgrow="ALWAYS">
+                                                         <columnConstraints>
+                                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                         </columnConstraints>
+                                                         <rowConstraints>
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                         </rowConstraints>
+                                                         <children>
+                                                            <Label text="Valve Class" GridPane.halignment="CENTER">
+                                                               <font>
+                                                                  <Font name="System Bold" size="20.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </GridPane>
+                                                   </children>
+                                                </HBox>
+                                                <HBox prefHeight="242.0" prefWidth="385.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <VBox prefHeight="259.0" prefWidth="453.0" HBox.hgrow="ALWAYS">
+                                                         <children>
+                                                            <JFXTextField fx:id="txtSearchCustomer" focusColor="#0099ff" labelFloat="true" prefHeight="45.0" prefWidth="413.0" promptText="Search" unFocusColor="BLACK" VBox.vgrow="ALWAYS">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                                                               </VBox.margin>
+                                                            </JFXTextField>
+                                                            <JFXTreeTableView fx:id="tblCMPCustomer" prefHeight="229.0" prefWidth="421.0" showRoot="false" VBox.vgrow="ALWAYS">
+                                                               <columnResizePolicy>
+                                                                  <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                               </columnResizePolicy>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                                               </VBox.margin>
+                                                            </JFXTreeTableView>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox layoutX="10.0" layoutY="474.0" prefHeight="291.0" prefWidth="360.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <VBox prefHeight="305.0" prefWidth="453.0" HBox.hgrow="ALWAYS">
+                                                         <children>
+                                                            <GridPane prefHeight="294.0" prefWidth="440.0" VBox.vgrow="ALWAYS">
+                                                               <columnConstraints>
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+                                                                  <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="400.0" />
+                                                                  <ColumnConstraints hgrow="ALWAYS" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+                                                                  <ColumnConstraints />
+                                                               </columnConstraints>
+                                                               <rowConstraints>
+                                                                  <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                               </rowConstraints>
+                                                               <children>
+                                                                  <HBox fx:id="BoxMessageCustomer" maxHeight="-Infinity" prefHeight="33.0" prefWidth="197.0" style="-fx-background-color: derive(#FF0808,100%); -fx-font-size: 14;" GridPane.columnIndex="1" GridPane.columnSpan="3">
+                                                                     <children>
+                                                                        <Text fx:id="txtMessageCustomer" strokeType="OUTSIDE" strokeWidth="0.0" text="Alert">
+                                                                           <font>
+                                                                              <Font name="System Bold" size="14.0" />
+                                                                           </font>
+                                                                           <HBox.margin>
+                                                                              <Insets top="5.0" />
+                                                                           </HBox.margin>
+                                                                        </Text>
+                                                                     </children>
+                                                                     <GridPane.margin>
+                                                                        <Insets right="80.0" />
+                                                                     </GridPane.margin>
+                                                                  </HBox>
+                                                                  <JFXTextField fx:id="txtCustomerCode" focusColor="#0099ff" labelFloat="true" promptText="Valve Class Id" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </JFXTextField>
+                                                                  <JFXTextField fx:id="txtCustomerName" focusColor="#0099ff" labelFloat="true" promptText="Valve Class" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </JFXTextField>
+                                                                  <JFXTextField fx:id="txtCustomerDescription" focusColor="#0099ff" labelFloat="true" promptText="Valve Standard" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </JFXTextField>
+                                                                  <JFXButton fx:id="btnAddUpdateCustomer" buttonType="RAISED" onAction="#btnAddUpdateCustomerAction" prefHeight="26.0" prefWidth="129.0" style="-fx-background-color: derive(#0099FF,20%);" text="Add New" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="TOP">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </JFXButton>
+                                                                  <JFXButton fx:id="btnDeleteCustomer" buttonType="RAISED" onAction="#btnDeleteCustomerAction" prefHeight="26.0" prefWidth="129.0" style="-fx-background-color: derive(#ac0800,20%);" text="Delete" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </JFXButton>
+                                                                  <JFXButton fx:id="btnClearCustomer" buttonType="RAISED" onAction="#btnClearCustomerAction" prefHeight="33.0" prefWidth="227.0" text="Clear and Add New" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="14.0" />
+                                                                     </font>
+                                                                  </JFXButton>
+                                                                  <Text fx:id="txtErrorCCode" fill="#ac0800" strokeType="OUTSIDE" strokeWidth="0.0" text="!" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="40.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                                  <Text fx:id="txtErrorCName" fill="#ac0800" layoutX="370.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="!" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="40.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                                  <Text fx:id="txtErrorCDescription" fill="#ac0800" layoutX="370.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="!" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="40.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                               </children>
+                                                            </GridPane>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </VBox>
+                                          <VBox layoutX="15.0" layoutY="15.0" prefHeight="600.0" prefWidth="0.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <HBox prefHeight="30.0" prefWidth="200.0">
+                                                   <children>
+                                                      <GridPane HBox.hgrow="ALWAYS">
+                                                         <columnConstraints>
+                                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                         </columnConstraints>
+                                                         <rowConstraints>
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                         </rowConstraints>
+                                                         <children>
+                                                            <Label text="Valve Size" GridPane.halignment="CENTER">
+                                                               <font>
+                                                                  <Font name="System Bold" size="20.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </GridPane>
+                                                   </children>
+                                                </HBox>
+                                                <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <VBox prefHeight="455.0" prefWidth="602.0" HBox.hgrow="ALWAYS">
+                                                         <children>
+                                                            <JFXTextField fx:id="txtSearchManufaturer" focusColor="#0099ff" labelFloat="true" promptText="Search" unFocusColor="BLACK" VBox.vgrow="ALWAYS">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                                                               </VBox.margin>
+                                                            </JFXTextField>
+                                                            <JFXTreeTableView fx:id="tblCMPManufaturer" showRoot="false" VBox.vgrow="ALWAYS">
+                                                               <columnResizePolicy>
+                                                                  <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                               </columnResizePolicy>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                                               </VBox.margin>
+                                                            </JFXTreeTableView>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox layoutX="10.0" layoutY="474.0" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                                                         <children>
+                                                            <GridPane VBox.vgrow="ALWAYS">
+                                                               <columnConstraints>
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+                                                                  <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="400.0" />
+                                                                  <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+                                                                  <ColumnConstraints />
+                                                                  <ColumnConstraints />
+                                                               </columnConstraints>
+                                                               <rowConstraints>
+                                                                  <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                               </rowConstraints>
+                                                               <children>
+                                                                  <HBox fx:id="BoxMessageManufaturer" maxHeight="-Infinity" prefHeight="33.0" prefWidth="400.0" style="-fx-background-color: derive(#FF0808,100%); -fx-font-size: 14;" GridPane.columnIndex="1" GridPane.columnSpan="3">
+                                                                     <children>
+                                                                        <Text fx:id="txtMessageManufaturer" strokeType="OUTSIDE" strokeWidth="0.0" text="Alert">
+                                                                           <font>
+                                                                              <Font name="System Bold" size="14.0" />
+                                                                           </font>
+                                                                           <HBox.margin>
+                                                                              <Insets top="5.0" />
+                                                                           </HBox.margin>
+                                                                        </Text>
+                                                                     </children>
+                                                                     <opaqueInsets>
+                                                                        <Insets />
+                                                                     </opaqueInsets>
+                                                                     <GridPane.margin>
+                                                                        <Insets right="80.0" />
+                                                                     </GridPane.margin>
+                                                                  </HBox>
+                                                                  <JFXTextField fx:id="txtManufaturerCode" focusColor="#0099ff" labelFloat="true" promptText="Valve Size Id" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                     <GridPane.margin>
+                                                                        <Insets right="30.0" />
+                                                                     </GridPane.margin>
+                                                                  </JFXTextField>
+                                                                  <JFXTextField fx:id="txtManufaturerName" focusColor="#0099ff" labelFloat="true" promptText="Valve Size" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                     <GridPane.margin>
+                                                                        <Insets right="30.0" />
+                                                                     </GridPane.margin>
+                                                                  </JFXTextField>
+                                                                  <JFXTextField fx:id="txtManufaturerDescription" focusColor="#0099ff" labelFloat="true" promptText="Manufacturer Description" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                     <GridPane.margin>
+                                                                        <Insets right="30.0" />
+                                                                     </GridPane.margin>
+                                                                  </JFXTextField>
+                                                                  <JFXButton fx:id="btnAddUpdateManufaturer" buttonType="RAISED" onAction="#btnAddUpdateManufaturerAction" prefHeight="26.0" prefWidth="129.0" style="-fx-background-color: derive(#0099FF,20%);" text="Add New" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="TOP">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="14.0" />
+                                                                     </font>
+                                                                  </JFXButton>
+                                                                  <JFXButton fx:id="btnDeleteManufaturer" buttonType="RAISED" onAction="#btnDeleteManufaturerAction" prefHeight="26.0" prefWidth="129.0" style="-fx-background-color: derive(#ac0800,20%);" text="Delete" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="18.0" />
+                                                                     </font>
+                                                                  </JFXButton>
+                                                                  <JFXButton fx:id="btnClearManufaturer" buttonType="RAISED" onAction="#btnClearManufaturerAction" prefHeight="33.0" prefWidth="227.0" text="Clear and Add New" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="14.0" />
+                                                                     </font>
+                                                                  </JFXButton>
+                                                                  <Text fx:id="txtErrorMCode" fill="#ac0800" strokeType="OUTSIDE" strokeWidth="0.0" text="!" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="40.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                                  <Text fx:id="txtErrorMName" fill="#ac0800" layoutX="376.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="!" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="40.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                                  <Text fx:id="txtErrorMDescription" fill="#ac0800" layoutX="376.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="!" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="40.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                               </children>
+                                                            </GridPane>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </VBox>
+                                          <VBox layoutX="1190.0" layoutY="10.0" prefHeight="600.0" prefWidth="0.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <HBox prefHeight="30.0" prefWidth="200.0">
+                                                   <children>
+                                                      <GridPane HBox.hgrow="ALWAYS">
+                                                         <columnConstraints>
+                                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                         </columnConstraints>
+                                                         <rowConstraints>
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                         </rowConstraints>
+                                                         <children>
+                                                            <Label text="Valve Type" GridPane.halignment="CENTER">
+                                                               <font>
+                                                                  <Font name="System Bold" size="20.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </GridPane>
+                                                   </children>
+                                                </HBox>
+                                                <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <VBox prefHeight="455.0" prefWidth="602.0" HBox.hgrow="ALWAYS">
+                                                         <children>
+                                                            <JFXTextField fx:id="txtSearchProject" focusColor="#0099ff" labelFloat="true" promptText="Search" unFocusColor="BLACK" VBox.vgrow="ALWAYS">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                                                               </VBox.margin>
+                                                            </JFXTextField>
+                                                            <JFXTreeTableView fx:id="tblCMPProject" prefHeight="172.0" prefWidth="326.0" showRoot="false" VBox.vgrow="ALWAYS">
+                                                               <columnResizePolicy>
+                                                                  <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                               </columnResizePolicy>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                                                               </VBox.margin>
+                                                            </JFXTreeTableView>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox layoutX="10.0" layoutY="474.0" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                                                         <children>
+                                                            <GridPane VBox.vgrow="ALWAYS">
+                                                               <columnConstraints>
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+                                                                  <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="400.0" />
+                                                                  <ColumnConstraints hgrow="ALWAYS" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+                                                                  <ColumnConstraints />
+                                                               </columnConstraints>
+                                                               <rowConstraints>
+                                                                  <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                               </rowConstraints>
+                                                               <children>
+                                                                  <HBox fx:id="BoxMessageProject" maxHeight="-Infinity" prefHeight="33.0" prefWidth="400.0" style="-fx-background-color: derive(#FF0808,100%); -fx-font-size: 14;" GridPane.columnIndex="1" GridPane.columnSpan="3">
+                                                                     <children>
+                                                                        <Text fx:id="txtMessageProject" strokeType="OUTSIDE" strokeWidth="0.0" text="Alert">
+                                                                           <font>
+                                                                              <Font name="System Bold" size="14.0" />
+                                                                           </font>
+                                                                           <HBox.margin>
+                                                                              <Insets top="5.0" />
+                                                                           </HBox.margin>
+                                                                        </Text>
+                                                                     </children>
+                                                                     <GridPane.margin>
+                                                                        <Insets right="80.0" />
+                                                                     </GridPane.margin>
+                                                                  </HBox>
+                                                                  <JFXTextField fx:id="txtProjectCode" focusColor="#0099ff" labelFloat="true" promptText="Valve Type Id" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                     <GridPane.margin>
+                                                                        <Insets right="30.0" />
+                                                                     </GridPane.margin>
+                                                                  </JFXTextField>
+                                                                  <JFXTextField fx:id="txtProjectName" focusColor="#0099ff" labelFloat="true" promptText="Valve Type" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                     <GridPane.margin>
+                                                                        <Insets right="30.0" />
+                                                                     </GridPane.margin>
+                                                                  </JFXTextField>
+                                                                  <JFXTextField fx:id="txtProjectDescription" focusColor="#0099ff" labelFloat="true" promptText="Project Description" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                     <GridPane.margin>
+                                                                        <Insets right="30.0" />
+                                                                     </GridPane.margin>
+                                                                  </JFXTextField>
+                                                                  <JFXButton fx:id="btnAddUpdateProject" buttonType="RAISED" onAction="#btnAddUpdateProjectAction" prefHeight="26.0" prefWidth="129.0" style="-fx-background-color: derive(#0099FF,20%);" text="Add New" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="TOP">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="14.0" />
+                                                                     </font>
+                                                                  </JFXButton>
+                                                                  <JFXButton fx:id="btnDeleteProject" buttonType="RAISED" onAction="#btnDeleteProjectAction" prefHeight="26.0" prefWidth="129.0" style="-fx-background-color: derive(#ac0800,20%);" text="Delete" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="14.0" />
+                                                                     </font>
+                                                                  </JFXButton>
+                                                                  <JFXButton fx:id="btnClearProject" buttonType="RAISED" onAction="#btnClearProjectAction" prefHeight="33.0" prefWidth="227.0" text="Clear and Add New" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="14.0" />
+                                                                     </font>
+                                                                  </JFXButton>
+                                                                  <Text fx:id="txtErrorPCode" fill="#ac0800" strokeType="OUTSIDE" strokeWidth="0.0" text="!" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="40.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                                  <Text fx:id="txtErrorPName" fill="#ac0800" layoutX="352.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="!" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="40.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                                  <Text fx:id="txtErrorPDescription" fill="#ac0800" layoutX="352.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="!" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="40.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                               </children>
+                                                            </GridPane>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                        <Tab fx:id="tabCMP1" onSelectionChanged="#tabCMP1Action" text="Test Setting">
+                           <content>
+                              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                                 <children>
+                                    <HBox prefHeight="565.0" prefWidth="1200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                       <children>
+                                          <VBox prefHeight="600.0" prefWidth="0.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <HBox prefHeight="37.0" prefWidth="453.0" VBox.vgrow="NEVER">
+                                                   <children>
+                                                      <GridPane HBox.hgrow="ALWAYS">
+                                                         <columnConstraints>
+                                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                         </columnConstraints>
+                                                         <rowConstraints>
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                         </rowConstraints>
+                                                         <children>
+                                                            <Label text="Valve Standard" GridPane.halignment="CENTER">
+                                                               <font>
+                                                                  <Font name="System Bold" size="20.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </GridPane>
+                                                   </children>
+                                                </HBox>
+                                                <HBox prefHeight="242.0" prefWidth="385.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <VBox prefHeight="259.0" prefWidth="453.0" HBox.hgrow="ALWAYS">
+                                                         <children>
+                                                            <JFXTextField fx:id="txtSearchCustomer1" focusColor="#0099ff" labelFloat="true" prefHeight="45.0" prefWidth="413.0" promptText="Search" unFocusColor="BLACK" VBox.vgrow="ALWAYS">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                                                               </VBox.margin>
+                                                            </JFXTextField>
+                                                            <JFXTreeTableView fx:id="tblCMPCustomer1" prefHeight="229.0" prefWidth="421.0" showRoot="false">
+                                                               <columnResizePolicy>
+                                                                  <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                               </columnResizePolicy>
+                                                            </JFXTreeTableView>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox layoutX="10.0" layoutY="474.0" prefHeight="291.0" prefWidth="360.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <VBox prefHeight="305.0" prefWidth="453.0" HBox.hgrow="ALWAYS">
+                                                         <children>
+                                                            <GridPane prefHeight="294.0" prefWidth="440.0" VBox.vgrow="ALWAYS">
+                                                               <columnConstraints>
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+                                                                  <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="400.0" />
+                                                                  <ColumnConstraints hgrow="ALWAYS" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+                                                                  <ColumnConstraints />
+                                                               </columnConstraints>
+                                                               <rowConstraints>
+                                                                  <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                               </rowConstraints>
+                                                               <children>
+                                                                  <HBox fx:id="BoxMessageCustomer1" maxHeight="-Infinity" prefHeight="33.0" prefWidth="197.0" style="-fx-background-color: derive(#FF0808,100%); -fx-font-size: 14;" GridPane.columnIndex="1" GridPane.columnSpan="3">
+                                                                     <children>
+                                                                        <Text fx:id="txtMessageCustomer1" strokeType="OUTSIDE" strokeWidth="0.0" text="Alert">
+                                                                           <font>
+                                                                              <Font name="System Bold" size="14.0" />
+                                                                           </font>
+                                                                           <HBox.margin>
+                                                                              <Insets top="5.0" />
+                                                                           </HBox.margin>
+                                                                        </Text>
+                                                                     </children>
+                                                                     <GridPane.margin>
+                                                                        <Insets right="80.0" />
+                                                                     </GridPane.margin>
+                                                                  </HBox>
+                                                                  <JFXTextField fx:id="txtCustomerCode1" focusColor="#0099ff" labelFloat="true" promptText="Valve Standard Id" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </JFXTextField>
+                                                                  <JFXTextField fx:id="txtCustomerName1" focusColor="#0099ff" labelFloat="true" promptText="Valve Standard" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </JFXTextField>
+                                                                  <JFXTextField fx:id="txtCustomerDescription1" focusColor="#0099ff" labelFloat="true" promptText="Valve Standard" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </JFXTextField>
+                                                                  <JFXButton fx:id="btnAddUpdateCustomer1" buttonType="RAISED" onAction="#btnAddUpdateCustomer1Action" prefHeight="26.0" prefWidth="129.0" style="-fx-background-color: derive(#0099FF,20%);" text="Add New" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="TOP">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </JFXButton>
+                                                                  <JFXButton fx:id="btnDeleteCustomer1" buttonType="RAISED" onAction="#btnDeleteCustomer1Action" prefHeight="26.0" prefWidth="129.0" style="-fx-background-color: derive(#ac0800,20%);" text="Delete" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                  </JFXButton>
+                                                                  <JFXButton fx:id="btnClearCustomer1" buttonType="RAISED" onAction="#btnClearCustomer1Action" prefHeight="33.0" prefWidth="227.0" text="Clear and Add New" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="14.0" />
+                                                                     </font>
+                                                                  </JFXButton>
+                                                                  <Text fx:id="txtErrorCCode1" fill="#ac0800" strokeType="OUTSIDE" strokeWidth="0.0" text="!" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="40.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                                  <Text fx:id="txtErrorCName1" fill="#ac0800" layoutX="370.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="!" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="40.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                                  <Text fx:id="txtErrorCDescription1" fill="#ac0800" layoutX="370.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="!" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="40.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                               </children>
+                                                            </GridPane>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </VBox>
+                                          <VBox layoutX="15.0" layoutY="15.0" prefHeight="600.0" prefWidth="0.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <HBox prefHeight="30.0" prefWidth="200.0">
+                                                   <children>
+                                                      <GridPane HBox.hgrow="ALWAYS">
+                                                         <columnConstraints>
+                                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                         </columnConstraints>
+                                                         <rowConstraints>
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                         </rowConstraints>
+                                                         <children>
+                                                            <Label text="Valve Material" GridPane.halignment="CENTER">
+                                                               <font>
+                                                                  <Font name="System Bold" size="20.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </GridPane>
+                                                   </children>
+                                                </HBox>
+                                                <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <VBox prefHeight="455.0" prefWidth="602.0" HBox.hgrow="ALWAYS">
+                                                         <children>
+                                                            <JFXTextField fx:id="txtSearchManufaturer1" focusColor="#0099ff" labelFloat="true" promptText="Search" unFocusColor="BLACK" VBox.vgrow="ALWAYS">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                                                               </VBox.margin>
+                                                            </JFXTextField>
+                                                            <JFXTreeTableView fx:id="tblCMPManufaturer1" showRoot="false">
+                                                               <columnResizePolicy>
+                                                                  <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                               </columnResizePolicy>
+                                                            </JFXTreeTableView>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox layoutX="10.0" layoutY="474.0" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                                                         <children>
+                                                            <GridPane VBox.vgrow="ALWAYS">
+                                                               <columnConstraints>
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+                                                                  <ColumnConstraints hgrow="NEVER" minWidth="10.0" prefWidth="400.0" />
+                                                                  <ColumnConstraints hgrow="NEVER" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+                                                                  <ColumnConstraints />
+                                                                  <ColumnConstraints />
+                                                               </columnConstraints>
+                                                               <rowConstraints>
+                                                                  <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                               </rowConstraints>
+                                                               <children>
+                                                                  <HBox fx:id="BoxMessageManufaturer1" maxHeight="-Infinity" prefHeight="33.0" prefWidth="400.0" style="-fx-background-color: derive(#FF0808,100%); -fx-font-size: 14;" GridPane.columnIndex="1" GridPane.columnSpan="3">
+                                                                     <children>
+                                                                        <Text fx:id="txtMessageManufaturer1" strokeType="OUTSIDE" strokeWidth="0.0" text="Alert">
+                                                                           <font>
+                                                                              <Font name="System Bold" size="14.0" />
+                                                                           </font>
+                                                                           <HBox.margin>
+                                                                              <Insets top="5.0" />
+                                                                           </HBox.margin>
+                                                                        </Text>
+                                                                     </children>
+                                                                     <opaqueInsets>
+                                                                        <Insets />
+                                                                     </opaqueInsets>
+                                                                     <GridPane.margin>
+                                                                        <Insets right="80.0" />
+                                                                     </GridPane.margin>
+                                                                  </HBox>
+                                                                  <JFXTextField fx:id="txtManufaturerCode1" focusColor="#0099ff" labelFloat="true" promptText="Valve Material Id" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                     <GridPane.margin>
+                                                                        <Insets right="30.0" />
+                                                                     </GridPane.margin>
+                                                                  </JFXTextField>
+                                                                  <JFXTextField fx:id="txtManufaturerName1" focusColor="#0099ff" labelFloat="true" promptText="Valve Material" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                     <GridPane.margin>
+                                                                        <Insets right="30.0" />
+                                                                     </GridPane.margin>
+                                                                  </JFXTextField>
+                                                                  <JFXTextField fx:id="txtManufaturerDescription1" focusColor="#0099ff" labelFloat="true" promptText="Manufacturer Description" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                     <GridPane.margin>
+                                                                        <Insets right="30.0" />
+                                                                     </GridPane.margin>
+                                                                  </JFXTextField>
+                                                                  <JFXButton fx:id="btnAddUpdateManufaturer1" buttonType="RAISED" onAction="#btnAddUpdateManufaturer1Action" prefHeight="26.0" prefWidth="129.0" style="-fx-background-color: derive(#0099FF,20%);" text="Add New" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="TOP">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="14.0" />
+                                                                     </font>
+                                                                  </JFXButton>
+                                                                  <JFXButton fx:id="btnDeleteManufaturer1" buttonType="RAISED" onAction="#btnDeleteManufaturer1Action" prefHeight="26.0" prefWidth="129.0" style="-fx-background-color: derive(#ac0800,20%);" text="Delete" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="18.0" />
+                                                                     </font>
+                                                                  </JFXButton>
+                                                                  <JFXButton fx:id="btnClearManufaturer1" buttonType="RAISED" onAction="#btnClearManufaturer1Action" prefHeight="33.0" prefWidth="227.0" text="Clear and Add New" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="14.0" />
+                                                                     </font>
+                                                                  </JFXButton>
+                                                                  <Text fx:id="txtErrorMCode1" fill="#ac0800" strokeType="OUTSIDE" strokeWidth="0.0" text="!" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="40.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                                  <Text fx:id="txtErrorMName1" fill="#ac0800" layoutX="376.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="!" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="40.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                                  <Text fx:id="txtErrorMDescription1" fill="#ac0800" layoutX="376.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="!" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="40.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                               </children>
+                                                            </GridPane>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </VBox>
+                                          <VBox layoutX="1190.0" layoutY="10.0" prefHeight="600.0" prefWidth="0.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <HBox prefHeight="30.0" prefWidth="200.0">
+                                                   <children>
+                                                      <GridPane HBox.hgrow="ALWAYS">
+                                                         <columnConstraints>
+                                                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                                         </columnConstraints>
+                                                         <rowConstraints>
+                                                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                         </rowConstraints>
+                                                         <children>
+                                                            <Label text="Test Type" GridPane.halignment="CENTER">
+                                                               <font>
+                                                                  <Font name="System Bold" size="20.0" />
+                                                               </font>
+                                                            </Label>
+                                                         </children>
+                                                      </GridPane>
+                                                   </children>
+                                                </HBox>
+                                                <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <VBox prefHeight="455.0" prefWidth="602.0" HBox.hgrow="ALWAYS">
+                                                         <children>
+                                                            <JFXTextField fx:id="txtSearchProject1" focusColor="#0099ff" labelFloat="true" promptText="Search" unFocusColor="BLACK" VBox.vgrow="ALWAYS">
+                                                               <font>
+                                                                  <Font name="System Bold" size="14.0" />
+                                                               </font>
+                                                               <VBox.margin>
+                                                                  <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+                                                               </VBox.margin>
+                                                            </JFXTextField>
+                                                            <JFXTreeTableView fx:id="tblCMPProject1" prefHeight="172.0" prefWidth="326.0" showRoot="false">
+                                                               <columnResizePolicy>
+                                                                  <TreeTableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                                                               </columnResizePolicy>
+                                                            </JFXTreeTableView>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                                <HBox layoutX="10.0" layoutY="474.0" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                                   <children>
+                                                      <VBox prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+                                                         <children>
+                                                            <GridPane VBox.vgrow="ALWAYS">
+                                                               <columnConstraints>
+                                                                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+                                                                  <ColumnConstraints hgrow="ALWAYS" minWidth="10.0" prefWidth="400.0" />
+                                                                  <ColumnConstraints hgrow="ALWAYS" maxWidth="-Infinity" minWidth="10.0" prefWidth="100.0" />
+                                                                  <ColumnConstraints />
+                                                               </columnConstraints>
+                                                               <rowConstraints>
+                                                                  <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints maxHeight="-Infinity" minHeight="35.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                                  <RowConstraints maxHeight="-Infinity" minHeight="10.0" prefHeight="100.0" vgrow="SOMETIMES" />
+                                                               </rowConstraints>
+                                                               <children>
+                                                                  <HBox fx:id="BoxMessageProject1" maxHeight="-Infinity" prefHeight="33.0" prefWidth="400.0" style="-fx-background-color: derive(#FF0808,100%); -fx-font-size: 14;" GridPane.columnIndex="1" GridPane.columnSpan="3">
+                                                                     <children>
+                                                                        <Text fx:id="txtMessageProject1" strokeType="OUTSIDE" strokeWidth="0.0" text="Alert">
+                                                                           <font>
+                                                                              <Font name="System Bold" size="14.0" />
+                                                                           </font>
+                                                                           <HBox.margin>
+                                                                              <Insets top="5.0" />
+                                                                           </HBox.margin>
+                                                                        </Text>
+                                                                     </children>
+                                                                     <GridPane.margin>
+                                                                        <Insets right="80.0" />
+                                                                     </GridPane.margin>
+                                                                  </HBox>
+                                                                  <JFXTextField fx:id="txtProjectCode1" focusColor="#0099ff" labelFloat="true" promptText="Test Type Id" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                     <GridPane.margin>
+                                                                        <Insets right="30.0" />
+                                                                     </GridPane.margin>
+                                                                  </JFXTextField>
+                                                                  <JFXTextField fx:id="txtProjectName1" focusColor="#0099ff" labelFloat="true" promptText="Test Type" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                     <GridPane.margin>
+                                                                        <Insets right="30.0" />
+                                                                     </GridPane.margin>
+                                                                  </JFXTextField>
+                                                                  <JFXTextField fx:id="txtProjectDescription1" focusColor="#0099ff" labelFloat="true" promptText="Project Description" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.vgrow="ALWAYS">
+                                                                     <font>
+                                                                        <Font size="14.0" />
+                                                                     </font>
+                                                                     <GridPane.margin>
+                                                                        <Insets right="30.0" />
+                                                                     </GridPane.margin>
+                                                                  </JFXTextField>
+                                                                  <JFXButton fx:id="btnAddUpdateProject1" buttonType="RAISED" onAction="#btnAddUpdateProject1Action" prefHeight="26.0" prefWidth="129.0" style="-fx-background-color: derive(#0099FF,20%);" text="Add New" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="4" GridPane.valignment="TOP">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="14.0" />
+                                                                     </font>
+                                                                  </JFXButton>
+                                                                  <JFXButton fx:id="btnDeleteProject1" buttonType="RAISED" onAction="#btnDeleteProject1Action" prefHeight="26.0" prefWidth="129.0" style="-fx-background-color: derive(#ac0800,20%);" text="Delete" textFill="WHITE" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="4" GridPane.valignment="TOP">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="14.0" />
+                                                                     </font>
+                                                                  </JFXButton>
+                                                                  <JFXButton fx:id="btnClearProject1" buttonType="RAISED" onAction="#btnClearProject1Action" prefHeight="33.0" prefWidth="227.0" text="Clear and Add New" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="14.0" />
+                                                                     </font>
+                                                                  </JFXButton>
+                                                                  <Text fx:id="txtErrorPCode1" fill="#ac0800" strokeType="OUTSIDE" strokeWidth="0.0" text="!" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="40.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                                  <Text fx:id="txtErrorPName1" fill="#ac0800" layoutX="352.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="!" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="40.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                                  <Text fx:id="txtErrorPDescription1" fill="#ac0800" layoutX="352.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="!" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                                                                     <font>
+                                                                        <Font name="System Bold" size="40.0" />
+                                                                     </font>
+                                                                  </Text>
+                                                               </children>
+                                                            </GridPane>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </AnchorPane>
+                           </content>
+                        </Tab>
+                     </tabs>
+                  </JFXTabPane>
+               </center>
+            </BorderPane>
+            <HBox fx:id="sectionFooter" alignment="CENTER" minHeight="-Infinity" prefHeight="50.0" prefWidth="781.0" style="-fx-background-color: #2F333E;">
+               <children>
+                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Crientors Hydrothrust">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Text>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

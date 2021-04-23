@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.web.WebView?>
+
+<AnchorPane id="AnchorPane" prefHeight="835.0" prefWidth="1326.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="E1232.ReportScreenController">
+   <children>
+      <VBox layoutX="224.0" layoutY="84.0" prefHeight="713.0" prefWidth="1321.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox prefHeight="73.0" prefWidth="1546.0">
+               <children>
+                  <ImageView fitHeight="100.0" fitWidth="140.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/logo.png" />
+                     </image>
+                  </ImageView>
+                  <VBox alignment="CENTER" prefHeight="73.0" prefWidth="1023.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="HYDROSTATIC TEST STAND">
+                           <font>
+                              <Font size="22.0" />
+                           </font>
+                        </Text>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="73.0" prefWidth="328.0">
+                     <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date :">
+                                 <HBox.margin>
+                                    <Insets left="80.0" top="45.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Text>
+                              <Text fx:id="txtdate" strokeType="OUTSIDE" strokeWidth="0.0" text="Text">
+                                 <HBox.margin>
+                                    <Insets left="10.0" top="45.0" />
+                                 </HBox.margin>
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox fx:id="sectionHeader" minHeight="-Infinity" prefHeight="38.0" prefWidth="1601.0" style="-fx-background-color: #2F333E;">
+               <children>
+                  <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0">
+                     <children>
+                        <JFXButton fx:id="btnHome" onAction="#btnHomeAction" prefHeight="50.0" prefWidth="200.0" style="-fx-background-radius: 0;" text="HOME" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="6.0" prefWidth="200.0">
+                     <children>
+                        <JFXButton fx:id="btnInitial" onAction="#btnInitialAction" prefHeight="0.0" prefWidth="200.0" style="-fx-background-radius: 0;" text="Initial Settings" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <JFXButton fx:id="btnTestScreen" onAction="#btnTestScreenAction" prefHeight="50.0" prefWidth="200.0" style="-fx-background-radius: 0;" text="Test Screen" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <JFXButton fx:id="btnReport" prefHeight="50.0" prefWidth="200.0" style="-fx-background-radius: 0; -fx-background-color: #0099FF;" text="Report" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" layoutX="810.0" layoutY="10.0">
+                     <children>
+                        <JFXButton fx:id="btnSystemCheck" onAction="#btnSystemCheckAction" prefHeight="50.0" prefWidth="200.0" style="-fx-background-radius: 0;" text="System Check" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <JFXButton fx:id="btnAdmin" onAction="#btnAdminAction" prefHeight="50.0" prefWidth="200.0" style="-fx-background-radius: 0;" text="Admin" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER" prefHeight="6.0" prefWidth="200.0">
+                     <children>
+                        <JFXButton fx:id="btnGaugeCal" onAction="#btnGaugeCalAction" prefHeight="0.0" prefWidth="200.0" style="-fx-background-radius: 0;" text="Gauge Calibration" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <WebView fx:id="webReport" prefHeight="726.0" prefWidth="1326.0" />
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>
