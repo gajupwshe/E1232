@@ -351,67 +351,118 @@ public class TestScreenController implements Initializable {
             GaugeActualHydro_B.setMaxValue(max);
 
             //Hydro gauge major tick space
-            if (max < 100) {
+//            if (max < 100) {
+//                if (max % 10 == 0) {
+//                    GaugeSetHydro.setMajorTickSpace(10);
+//                    GaugeSetHydro.setMinorTickSpace(5);
+//
+//                    GaugeActualHydro_A.setMajorTickSpace(10);
+//                    GaugeActualHydro_A.setMinorTickSpace(5);
+//
+//                    GaugeActualHydro_B.setMajorTickSpace(10);
+//                    GaugeActualHydro_B.setMinorTickSpace(5);
+//                } else {
+//                    if (max < 10) {
+//                    } else {
+//                        int space = max / 3;
+//                        GaugeSetHydro.setMajorTickSpace(max / space);
+//                        GaugeSetHydro.setMinorTickSpace(1);
+//
+//                        GaugeActualHydro_A.setMajorTickSpace(max / space);
+//                        GaugeActualHydro_A.setMinorTickSpace(1);
+//
+//                        GaugeActualHydro_B.setMajorTickSpace(max / space);
+//                        GaugeActualHydro_B.setMinorTickSpace(1);
+//                    }
+//                }
+//            } else if (max > 1500) {
+//                GaugeSetHydro.setMajorTickSpace(max / 1000);
+//                GaugeSetHydro.setMinorTickSpace(500);
+//
+//                GaugeActualHydro_A.setMajorTickSpace(max / 1000);
+//                GaugeActualHydro_A.setMinorTickSpace(500);
+//
+//                GaugeActualHydro_B.setMajorTickSpace(max / 1000);
+//                GaugeActualHydro_B.setMinorTickSpace(500);
+//            } else if (max > 1000 && max < 1500) {
+//                GaugeSetHydro.setMajorTickSpace(max / 1000);
+//                GaugeSetHydro.setMinorTickSpace(250);
+//
+//                GaugeActualHydro_A.setMajorTickSpace(max / 1000);
+//                GaugeActualHydro_A.setMinorTickSpace(250);
+//
+//                GaugeActualHydro_B.setMajorTickSpace(max / 1000);
+//                GaugeActualHydro_B.setMinorTickSpace(250);
+//            } else if (max > 500 && max < 1000) {
+//                GaugeSetHydro.setMajorTickSpace(max / 1000);
+//                GaugeSetHydro.setMinorTickSpace(500);
+//
+//                GaugeActualHydro_A.setMajorTickSpace(max / 1000);
+//                GaugeActualHydro_A.setMinorTickSpace(500);
+//
+//                GaugeActualHydro_B.setMajorTickSpace(max / 1000);
+//                GaugeActualHydro_B.setMinorTickSpace(500);
+//            } else if (max < 500 && max > 100) {
+//                GaugeSetHydro.setMajorTickSpace(max / 1000);
+//                GaugeSetHydro.setMinorTickSpace(500);
+//
+//                GaugeActualHydro_A.setMajorTickSpace(max / 1000);
+//                GaugeActualHydro_A.setMinorTickSpace(500);
+//
+//                GaugeActualHydro_B.setMajorTickSpace(max / 1000);
+//                GaugeActualHydro_B.setMinorTickSpace(500);
+//            }
+if (max < 100) {
                 if (max % 10 == 0) {
                     GaugeSetHydro.setMajorTickSpace(10);
-                    GaugeSetHydro.setMinorTickSpace(5);
-
-                    GaugeActualHydro_A.setMajorTickSpace(10);
-                    GaugeActualHydro_A.setMinorTickSpace(5);
-
                     GaugeActualHydro_B.setMajorTickSpace(10);
+                    GaugeActualHydro_A.setMajorTickSpace(10);
+                    GaugeSetHydro.setMinorTickSpace(5);
                     GaugeActualHydro_B.setMinorTickSpace(5);
+                    GaugeActualHydro_A.setMinorTickSpace(5);
                 } else {
                     if (max < 10) {
                     } else {
-                        int space = max / 3;
+                        int space = max / 10;
                         GaugeSetHydro.setMajorTickSpace(max / space);
-                        GaugeSetHydro.setMinorTickSpace(1);
-
-                        GaugeActualHydro_A.setMajorTickSpace(max / space);
-                        GaugeActualHydro_A.setMinorTickSpace(1);
-
                         GaugeActualHydro_B.setMajorTickSpace(max / space);
+                        GaugeActualHydro_A.setMajorTickSpace(max / space);
+                        GaugeSetHydro.setMinorTickSpace(1);
                         GaugeActualHydro_B.setMinorTickSpace(1);
+                        GaugeActualHydro_A.setMinorTickSpace(1);
                     }
+
                 }
             } else if (max > 1500) {
-                GaugeSetHydro.setMajorTickSpace(max / 1000);
-                GaugeSetHydro.setMinorTickSpace(500);
-
-                GaugeActualHydro_A.setMajorTickSpace(max / 1000);
-                GaugeActualHydro_A.setMinorTickSpace(500);
-
-                GaugeActualHydro_B.setMajorTickSpace(max / 1000);
-                GaugeActualHydro_B.setMinorTickSpace(500);
+                GaugeSetHydro.setMajorTickSpace(max / 1200);
+                GaugeActualHydro_B.setMajorTickSpace(max / 1200);
+                GaugeActualHydro_A.setMajorTickSpace(max / 1200);
+                GaugeSetHydro.setMinorTickSpace(250);
+                GaugeActualHydro_B.setMinorTickSpace(250);
+                GaugeActualHydro_A.setMinorTickSpace(250);
             } else if (max > 1000 && max < 1500) {
-                GaugeSetHydro.setMajorTickSpace(max / 1000);
-                GaugeSetHydro.setMinorTickSpace(250);
-
-                GaugeActualHydro_A.setMajorTickSpace(max / 1000);
-                GaugeActualHydro_A.setMinorTickSpace(250);
-
-                GaugeActualHydro_B.setMajorTickSpace(max / 1000);
-                GaugeActualHydro_B.setMinorTickSpace(250);
+                GaugeSetHydro.setMajorTickSpace(max / 200);
+                GaugeActualHydro_B.setMajorTickSpace(max / 200);
+                GaugeActualHydro_A.setMajorTickSpace(max / 200);
+                GaugeSetHydro.setMinorTickSpace(50);
+                GaugeActualHydro_B.setMinorTickSpace(50);
+                GaugeActualHydro_A.setMinorTickSpace(50);
             } else if (max > 500 && max < 1000) {
-                GaugeSetHydro.setMajorTickSpace(max / 1000);
-                GaugeSetHydro.setMinorTickSpace(250);
-
-                GaugeActualHydro_A.setMajorTickSpace(max / 1000);
-                GaugeActualHydro_A.setMinorTickSpace(250);
-
-                GaugeActualHydro_B.setMajorTickSpace(max / 1000);
-                GaugeActualHydro_B.setMinorTickSpace(250);
+                GaugeSetHydro.setMajorTickSpace(max / 100);
+                GaugeActualHydro_B.setMajorTickSpace(max / 100);
+                GaugeActualHydro_A.setMajorTickSpace(max / 100);
+                GaugeSetHydro.setMinorTickSpace(25);
+                GaugeActualHydro_B.setMinorTickSpace(25);
+                GaugeActualHydro_A.setMinorTickSpace(25);
             } else if (max < 500 && max > 100) {
-                GaugeSetHydro.setMajorTickSpace(max / 1000);
-                GaugeSetHydro.setMinorTickSpace(250);
-
-                GaugeActualHydro_A.setMajorTickSpace(max / 1000);
-                GaugeActualHydro_A.setMinorTickSpace(250);
-
-                GaugeActualHydro_B.setMajorTickSpace(max / 1000);
-                GaugeActualHydro_B.setMinorTickSpace(250);
+                GaugeSetHydro.setMajorTickSpace(max / 50);
+                GaugeActualHydro_B.setMajorTickSpace(max / 50);
+                GaugeActualHydro_A.setMajorTickSpace(max / 50);
+                GaugeSetHydro.setMinorTickSpace(15);
+                GaugeActualHydro_B.setMinorTickSpace(15);
+                GaugeActualHydro_A.setMinorTickSpace(15);
             }
+
             //Hydro gauge green zone range
             GaugeSetHydro.addSection(new Section(0, green + 1, color.GaugeGreen));
 
