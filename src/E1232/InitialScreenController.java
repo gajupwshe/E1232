@@ -637,7 +637,7 @@ public class InitialScreenController implements Initializable {
 
             ResultSet rs_data = dh.getData("SELECT * FROM valve_data ORDER BY id DESC LIMIT 1", connect);
             if (rs_data.next()) {
-                
+
                 txtproDuct.setText(rs_data.getString("productDetial"));
                 txtValveSrNo.setText(rs_data.getString("vsn"));
                 txtQty.setText(rs_data.getString("qty"));
@@ -684,7 +684,7 @@ public class InitialScreenController implements Initializable {
                 txtGlandMPI.setText(rs_data.getString("glandHeatNo"));
                 txtGlandRT.setText(rs_data.getString("glandMpiNo"));
                 txtGlandSR.setText(rs_data.getString("glandRtNo"));
-                
+
                 txtPressureAsPer.setText(rs_data.getString("pressureAsPer"));
 
             }
@@ -887,8 +887,7 @@ public class InitialScreenController implements Initializable {
             if (ToolKit.isNull(vsn)
                     || ToolKit.isNull(PressureAsPer)
                     || ToolKit.isNull(lt)
-                    ||ToolKit.isNull(digiPressGaugeId)
-                    ) {
+                    || ToolKit.isNull(digiPressGaugeId)) {
                 Dialog.showForSometime("", "Please provide appropriate data", "Alert", 450, 10);
                 check_text_empty_fields(txtValveSrNo, vsn);
                 check_text_empty_fields(txtPressureAsPer, vsn);
@@ -896,7 +895,7 @@ public class InitialScreenController implements Initializable {
                 check_combo_empty_fields(comboGaugeId, digiPressGaugeId);
             } else {
 
-                if (tt.equals("CAVITY RELIEF TEST")) {
+                if (tt.equals("CAVITY")) {
                     Session.set("vsn", vsn);
                     Session.set("tt", tt);
                     Session.set("vt", vt);
@@ -909,6 +908,7 @@ public class InitialScreenController implements Initializable {
                     Session.set("pu", pu);
                     Session.set("hsp", txtHydroSetPressure.getText());
                     Session.set("hlsp", txtHydraulicSetPressure.getText());
+                    Session.set("gaugeSlNo",digiPressGaugeId);
 
                     ResultSet rs = dh.getData("SELECT test_no FROM valve_data ORDER BY id DESC LIMIT 1", connect);
                     if (rs.next()) {
@@ -949,6 +949,7 @@ public class InitialScreenController implements Initializable {
                     Session.set("pu", pu);
                     Session.set("hsp", txtHydroSetPressure.getText());
                     Session.set("hlsp", txtHydraulicSetPressure.getText());
+                    Session.set("gaugeSlNo",digiPressGaugeId);
 
                     ResultSet rs = dh.getData("SELECT test_no FROM valve_data ORDER BY id DESC LIMIT 1", connect);
                     if (rs.next()) {
@@ -1317,7 +1318,12 @@ public class InitialScreenController implements Initializable {
     }
 
     @FXML
-    private void txtHydroSetPressureAction(ActionEvent event) {
+    private void txtHydroSetPressureAction(ActionEvent event) throws IOException, InterruptedException {
+        String h_time1 = txtHydroSetPressure.getText();
+        String cmd = "python E:\\E1232\\python_plc\\write_plc_real.py 44 0 " + h_time1;
+        Process child = Runtime.getRuntime().exec(cmd);
+        child.waitFor();
+
     }
 
     @FXML
@@ -1325,7 +1331,11 @@ public class InitialScreenController implements Initializable {
     }
 
     @FXML
-    private void txtHydraulicSetPressureAction(ActionEvent event) {
+    private void txtHydraulicSetPressureAction(ActionEvent event) throws InterruptedException, IOException {
+        String h_time1 = txtHydraulicSetPressure.getText();
+        String cmd = "python E:\\E1232\\python_plc\\write_plc_real.py 40 0 " + h_time1;
+        Process child = Runtime.getRuntime().exec(cmd);
+        child.waitFor();
     }
 
     @FXML
