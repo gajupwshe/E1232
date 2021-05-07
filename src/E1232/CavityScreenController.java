@@ -115,63 +115,75 @@ public class CavityScreenController implements Initializable {
     LineChart<Number, Number> lineChart;
 
     private volatile boolean stop_mode = false;
-   
+
     Thread m_mode;
-    
+
     String current_machine_mode, current_offline_mode, current_actual_pressure;
     String valve_class = "";
     String valve_size = "";
     String valve_type = "";
     String valve_standards = "";
     String type_of_sealing = "";
-    
-    
-    int current_over_all_timer = 0;
-    
+
+    String current_over_all_timer = "0", over_all_time;
+    final ToggleGroup group = new ToggleGroup();
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-        date_time();
-        Background_Processes.insert_plc_data("python E:\\E1232\\python_plc\\insert_init_tags.py", false, true);
-        machine_mode();
+        try {
+            // TODO
+            date_time();
+            Background_Processes.insert_plc_data("python E:\\E1232\\python_plc\\insert_cavity_test_tags.py", false, true);
+            machine_mode();
+            radioHighPressure.setToggleGroup(group);
+            radioLowPressure.setToggleGroup(group);
+            radioOff.setToggleGroup(group);
+            radioHighPressure.setVisible(false);
+            trend_initialize();
+            start_trend();
+            start_trend=true;
+        } catch (IOException ex) {
+            Logger.getLogger(CavityScreenController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
-    
     private void machine_mode() {
         stop_mode = false;
         m_mode = new Thread(() -> {
             while (true) {
+
                 try {
-                    Thread.sleep(150);
+                    Thread.sleep(200);
                     if (stop_mode) {
                         break;
                     }
-                    String display = "SELECT * FROM test_tags ORDER BY test_tags_id DESC LIMIT 1";
+                    String display = "SELECT * FROM insert_cavity_tag ORDER BY id DESC LIMIT 1";
                     ResultSet rs = dh.getData(display, conn);
                     if (rs.next()) {
 //                        System.out.println("hydro_actual_a_pressure" +rs.getString("hydro_actual_a_pressure"));
-                        if (rs.getString("offline_online").equals(current_offline_mode)) {
-                            //System.out.println("Offline not changed");
-                        } else {
-                            switch (rs.getString("offline_online")) {
-                                case "0":
-                                    txtOffline.setText("Online");
-                                    current_offline_mode = "0";
-                                    break;
-                                case "1":
-                                    txtOffline.setText("Offline");
-                                    current_offline_mode = "1";
-                                    break;
-                                default:
-                                    txtOffline.setText("Something went wrong");
-                                    current_offline_mode = "0";
-                                    break;
-                            }
-                            //System.out.println("Offline changed");
-                        }
+//                        if (rs.getString("offline_online").equals(current_offline_mode)) {
+//                            //System.out.println("Offline not changed");
+//                        } else {
+//                            switch (rs.getString("offline_online")) {
+//                                case "0":
+//                                    txtOffline.setText("Online");
+//                                    current_offline_mode = "0";
+//                                    break;
+//                                case "1":
+//                                    txtOffline.setText("Offline");
+//                                    current_offline_mode = "1";
+//                                    break;
+//                                default:
+//                                    txtOffline.setText("Something went wrong");
+//                                    current_offline_mode = "0";
+//                                    break;
+//                            }
+//                            //System.out.println("Offline changed");
+//                        }
                         if (stop_mode) {
                             break;
                         }
@@ -185,20 +197,33 @@ public class CavityScreenController implements Initializable {
                             break;
                         }
 //                        System.out.println("hydro_actual_a_pressure" +rs.getString("hydro_actual_a_pressure"));
-                        if (rs.getString("hydro_actual_a_pressure").equals(current_actual_pressure)) {
+                        if (rs.getString("cavityActualPressure").equals(current_actual_pressure)) {
 //                                System.out.println("mode not changed");
                         } else {
-                            txtActualCavityReliefPressure.setText(rs.getString("hydro_actual_a_pressure"));
-                            current_actual_pressure = rs.getString("hydro_actual_a_pressure");
+                            String actual_cavity= String.format("%.2f", Float.parseFloat(rs.getString("cavityActualPressure")));
+//                            String actual_cavity = rs.getString("cavityActualPressure");
+                            
+                            Platform.runLater(() -> {
+                                txtActualCavityReliefPressure.setText(actual_cavity);
+                            });
+                            current_actual_pressure = rs.getString("cavityActualPressure");
 //                                System.out.println("mode changed");
                         }
+
+                        if (over_all_time.equals(current_over_all_timer)) {
+                        } else {
+                            current_over_all_timer = over_all_time;
+                        }
+
                     }
 
-                } catch (InterruptedException | SQLException e) {
-
-                }
-                if (stop_mode) {
-                    break;
+                    if (stop_mode) {
+                        break;
+                    }
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(CavityScreenController.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (SQLException ex) {
+                    Logger.getLogger(CavityScreenController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
         }, "machineModeThreadCavity");
@@ -267,7 +292,7 @@ public class CavityScreenController implements Initializable {
 //                break;
         }
     }
-    
+
     private void date_time() {
         time.scheduleAtFixedRate(date, 0, 1000);
     }
@@ -317,7 +342,7 @@ public class CavityScreenController implements Initializable {
 
             series1.setName("Hydro Pressure");
             // Add Chart Series
-            lineChart.getData().addAll(series1, series3, series2);
+            lineChart.getData().addAll(series1);
 //            }
             drawer.setMinWidth(400);
             drawer.setSidePane(lineChart);
@@ -370,7 +395,16 @@ public class CavityScreenController implements Initializable {
 
     @FXML
     private void txtCavityReliefPressureAction(ActionEvent event) {
-         ToolKit.tagWrite("F8:111", txtCavityReiiefPressure.getText());
+        try {
+            String cavisty_set = txtCavityReiiefPressure.getText();
+            String cmd = "python E:\\E1232\\python_plc\\write_plc_real.py 114 0 " + cavisty_set;
+            Process child = Runtime.getRuntime().exec(cmd);
+            child.waitFor();
+        } catch (IOException ex) {
+            Logger.getLogger(TestScreenController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InterruptedException ex) {
+            Logger.getLogger(CavityScreenController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
@@ -379,23 +413,22 @@ public class CavityScreenController implements Initializable {
 
     @FXML
     private void btnReleasePressureAction(ActionEvent event) {
-         String get_pressure = "SELECT result FROM test_tags ORDER BY test_tags_id DESC LIMIT 1";
+        String get_pressure = "SELECT result FROM insert_cavity_tag ORDER BY id DESC LIMIT 1";
 
 //        ToolKit.tagWrite("B3:12/2", "1");
 //        ToolKit.tagWrite("B3:12/2", "0");
-
         try {
             ResultSet rs = dh.getData(get_pressure, conn);
             if (rs.next()) {
-                String result_cavity = ToolKit.tagRead("N7:55");
-                String result = "";
-                if (result_cavity.equals("1")) {
-
-                } else {
-
-                }
+//                String result_cavity = ToolKit.tagRead("N7:55");
+                String result = rs.getString("result");
+//                if (result_cavity.equals("1")) {
+//
+//                } else {
+//
+//                }
 //                txtResult.setText(rs.getString("result"));
-                String store_result = "INSERT INTO test_result (`valve_serial_no`, `test_no`, `test_type`, `leakage_type`, `valve_type`,`valve_size`, `valve_class`, `actual_leakage`, `holding_time`,`over_all_time`, `hydro_set_pressure`,`start_pressure_a`,`start_pressure_b`,`stop_pressure_a`,`stop_pressure_b`, `pressure_unit`, `gauge_serial_no`, `guage_calibration_date`, `test_result`, `date_time`) VALUES('" + Session.get("Valve_Serial_No") + "','" + Session.get("test_no") + "','" + Session.get("Test_Type") + "','NONE','" + valve_type + "','" + valve_size + "','" + valve_class + "','NA','NA','NA','" + txtCavityReiiefPressure.getText() + "','" + txtActualCavityReliefPressure.getText() + "','NA','NA','NA','" + Session.get("pressure_unit") + "','" + Session.get("gauge_serial") + "','" + Session.get("gauge_calibration_date") + "','" + result_cavity + "',NOW())";
+                String store_result = "INSERT INTO test_result (`valve_serial_no`, `test_no`, `test_type`, `leakage_type`, `valve_type`,`valve_size`, `valve_class`, `actual_leakage`, `holding_time`,`over_all_time`, `hydro_set_pressure`,`start_pressure_a`,`start_pressure_b`,`stop_pressure_a`,`stop_pressure_b`, `pressure_unit`, `gauge_serial_no`, `guage_calibration_date`, `test_result`, `date_time`) VALUES('" + Session.get("Valve_Serial_No") + "','" + Session.get("test_no") + "','" + Session.get("Test_Type") + "','NONE','" + valve_type + "','" + valve_size + "','" + valve_class + "','NA','NA','NA','" + txtCavityReiiefPressure.getText() + "','" + txtActualCavityReliefPressure.getText() + "','NA','NA','NA','" + Session.get("pressure_unit") + "','" + Session.get("gauge_serial") + "','" + Session.get("gauge_calibration_date") + "','" + result + "',NOW())";
                 dh.execute(store_result, conn);
             }
 
@@ -404,20 +437,49 @@ public class CavityScreenController implements Initializable {
     }
 
     @FXML
-    private void radioHighPressureAction(ActionEvent event) {
+    private void radioHighPressureAction(ActionEvent event) throws SQLException {
+        if (radioHighPressure.isSelected()) {
+            dh.execute("UPDATE pop_value set highPressure='0' WHERE id='1' ", conn);
+        }
     }
 
     @FXML
-    private void radioLowPressureAction(ActionEvent event) {
+    private void radioLowPressureAction(ActionEvent event) throws SQLException {
+        if (radioLowPressure.isSelected()) {
+            dh.execute("UPDATE pop_value set lowPressure='0' WHERE id='1' ", conn);
+        }
     }
 
     @FXML
-    private void radioOffAction(ActionEvent event) {
+    private void radioOffAction(ActionEvent event) throws SQLException {
+        dh.execute("UPDATE pop_value set lowPressure='3' WHERE id='1' ", conn);
+    }
+
+    @FXML
+    private void btnInitialAction(ActionEvent event) throws IOException {
+//        if (you_can_change) {
+//            Background_Processes.stop_plc_read();
+//            mode.stop();
+//            cycleStatus.stop();
+
+        dropbox("InitialScreen.fxml", false);
+//            Platform.runLater(() -> {
+//                try {
+//                    Parent root = FXMLLoader.load(getClass().getResource("InitialScreen.fxml"));
+//                    ToolKit.loadScreen(root);
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            });
+//            ToolKit.unloadScreen(btnHome);
+//        } else {
+//            Dialog.showForSometime("Alert", "Cycle running You can't Go", "Alert", 450, 5);
+//        }
     }
 
     private class AddToQueue implements Runnable {
 
-        String query = "SELECT * FROM test_tags ORDER BY test_tags_id DESC LIMIT 1";
+        String query = "SELECT * FROM insert_cavity_tag ORDER BY id DESC LIMIT 1";
         ResultSet rs;
 
         @Override
@@ -433,7 +495,7 @@ public class CavityScreenController implements Initializable {
                             double dq2 = 0.0;
                             double dq3 = 0.0;
                             try {
-                                dq1 = Double.parseDouble(rs.getString("hydro_actual_a_pressure"));
+                                dq1 = Double.parseDouble(rs.getString("cavityActualPressure"));
                             } catch (Exception e) {
                                 System.err.println("This is an Error of Trend data where dq1 and dq2 defined: " + e.getMessage());
                             }
@@ -487,7 +549,7 @@ public class CavityScreenController implements Initializable {
                 break;
             }
 //            Platform.runLater(() -> {
-            series1.getData().add(new XYChart.Data<>(current_over_all_timer, dataQ1.remove()));
+            series1.getData().add(new XYChart.Data<>(Integer.parseInt(current_over_all_timer), dataQ1.remove()));
 
         }
         Platform.runLater(() -> {
@@ -500,8 +562,8 @@ public class CavityScreenController implements Initializable {
 
     @FXML
     private void btnHomeAction(ActionEvent event) throws IOException {
-         dropbox("Login.fxml", false);
-   
+        dropbox("Login.fxml", false);
+
     }
 
     @FXML
@@ -520,14 +582,14 @@ public class CavityScreenController implements Initializable {
 
     @FXML
     private void btnAdminAction(ActionEvent event) throws IOException {
-         dropbox("AdminScreen.fxml", false);
+        dropbox("AdminScreen.fxml", false);
     }
 
     @FXML
     private void btnGaugeCalAction(ActionEvent event) {
     }
 
-     public void dropbox(String a, boolean initial_check) throws IOException {
+    public void dropbox(String a, boolean initial_check) throws IOException {
 //        Background_Processes.stop_plc_read();
 //        Background_Processes.stop_date_time();
 
